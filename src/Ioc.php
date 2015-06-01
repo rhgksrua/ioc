@@ -13,7 +13,7 @@ class Ioc
      *
      *
      */
-    public static function register($name, Closure $resolve)
+    public static function register($name, \Closure $resolve)
     {
         static::$registry[$name] = $resolve;
     }
