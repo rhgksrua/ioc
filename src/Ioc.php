@@ -2,7 +2,7 @@
 
 namespace Rhgksrua\Ioc;
 
-class IoC
+class Ioc
 {
     /**
      *
