@@ -12,25 +12,21 @@ class IocTest extends PHPUnit_Framework_TestCase {
     public function testIocRegistersAClass()
     {
         // Mock of an object.
-        $dummyObj = $this->getMock('Dummy');
+        $container = new Ioc;
         $dummyObj = $this->getMockBuilder('Dummy')->getMock();
-        Ioc::register('dummy', function() {
+        $container->register('dummy', function() {
             return $dummyObj;
         });
-        $this->assertTrue(Ioc::registered('dummy'));
+        $this->assertTrue($container->registered('dummy'));
 
-        return $dummyObj;
+        return $container;
     }
 
     /**
      * @depends testIocRegistersAClass
      *
      */
-    public function testIocResolveRegisteredObject()
+    public function testIocResolveRegisteredObject($container)
     {
-        /*
-        $resolvedInstance = Ioc::resolve('dummy');
-        $this->assertTrue($resolvedInstance instanceof $dummyObj);
-         */
     }
 }
